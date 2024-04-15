@@ -1,0 +1,11 @@
+[Unit]
+Description=Setup Tuleap
+After=mysqld.service
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/local/sbin/script.sh
+
+[Install]
+WantedBy=multi-user.target
