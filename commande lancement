@@ -1,0 +1,5 @@
+docker build -t docker_tracker .
+docker run --rm -t --name foo -v /sys/fs/cgroup:/sys/fs/cgroup:rw -v ./.env:/root/.env:ro --cap-add=sys_nice --mount type=tmpfs,destination=/run  -p 80:80 -p 443:443 -p 22:22  docker_tuleap
+docker run --rm -t --name mysql_v2 -v /sys/fs/cgroup:/sys/fs/cgroup:rw  --cap-add=sys_nice --mount type=tmpfs,destination=/run  docker_mysql
+docker exec -ti foo bash
+docker exec -ti mysql_v2 bash
